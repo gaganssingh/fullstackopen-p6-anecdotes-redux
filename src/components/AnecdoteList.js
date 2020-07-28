@@ -19,11 +19,12 @@ const AnecdoteList = () => {
       );
 
    const vote = (id) => {
-      const upvopedAnectode = sortedAndFilteredAnecdote.find(
-         (anec) => anec.id === id
-      );
+      // const upvopedAnectode = sortedAndFilteredAnecdote.find(
+      //    (anec) => anec.id === id
+      // );
       dispatch(upvote(id));
-      dispatch(showNotification(`You upvoted: ${upvopedAnectode.content}`));
+
+      dispatch(showNotification(`You upvoted: `));
       setTimeout(() => {
          dispatch(clearNotification());
       }, 5000);
