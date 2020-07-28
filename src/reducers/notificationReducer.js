@@ -11,22 +11,18 @@ const notificationReducer = (state = initialState, action) => {
    }
 };
 
+let timerId;
 export const showNotification = (message, timer = 5000) => {
    return (dispatch) => {
+      clearTimeout(timerId);
+      timerId = setTimeout(() => {
+         dispatch({ type: "REMOVE" });
+      }, timer);
       dispatch({
          type: "SHOW",
          data: message,
       });
-      setTimeout(() => {
-         dispatch({ type: "REMOVE" });
-      }, timer);
    };
 };
-
-// export const clearNotification = () => {
-//    return {
-//       type: "REMOVE",
-//    };
-// };
 
 export default notificationReducer;

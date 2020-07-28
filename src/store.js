@@ -13,6 +13,4 @@ const reducer = combineReducers({
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
-store.subscribe(() => console.log(store.getState()));
-
 export default store;
